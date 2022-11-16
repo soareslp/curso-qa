@@ -1,0 +1,26 @@
+{
+  "name": "primeiro-projeto",
+  "version": "1.0.0",
+  "description": "Primeiro projeto em Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soareslp/cursos.git"
+  },
+  "keywords": [
+    "Cypress"
+  ],
+  "author": "Lucas Soares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soareslp/cursos/issues"
+  },
+  "homepage": "https://github.com/soareslp/cursos#readme",
+  "devDependencies": {
+    "cypress": "^11.1.0",
+    "mochawesome": "^7.1.3"
+  }
+}
