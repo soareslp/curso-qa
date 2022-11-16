@@ -1,3 +1,5 @@
+import { it } from "mocha";
+
 describe('Login e registro de usuários no AluraPic', () => {
 
     beforeEach(() => {
@@ -56,9 +58,33 @@ describe('Login e registro de usuários no AluraPic', () => {
         cy.contains('ap-vmessage','Must be lower case').should('be.visible');
     })
 
-
-    it.only('login de usuário válido', () => {
+    it('login de usuário válido', () => {
         cy.login('flavio', '123');
         cy.contains('a', '(Logout)').should('be.visible');
     })
+
+    it('login de usuário inválido', () => {
+        cy.login('jaqueline', '1234');
+        cy.contains('ap-vmessage', 'User name is required!').should('be.visible');
+        cy.contains('ap-vmessage', 'Password is required!').should('be.visible');
+    })
+
+    it('registro de usuário automatizado', () => {
+        cy.registro('lucas@gmail', 'Lucas Soares', 'lps_soaress', '12345678');
+        cy.login('lps_soares', '12345678');
+        cy.contains('a', '(Logout)').should('be.visible');
+    })
+
+    it('login com usuário criado automático', () => {
+        cy.login('lps_soares', '12345678');
+        cy.contains('a', '(Logout)').should('be.visible');
+    })
+
+    const usuarios = require('../../fixtures/usuarios.json');
+    usuarios.forEach(usuario => {
+        it.only(`registro por carga de usuário ${usuario.fullName}`, () => {
+            cy.registro(usuario.email, usuario.fullName, usuario.userName, usuario.password);
+        })
+    })
+    
 })

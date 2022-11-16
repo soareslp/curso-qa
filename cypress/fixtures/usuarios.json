@@ -1,0 +1,22 @@
+[
+    {
+        "email": "edward.elric@alura.com.br",
+        "fullName": "Edward Elric",
+        "userName": "edward",
+        "password": "elric123"
+    },
+
+    {
+        "email": "alfonse.elric@alura.com.br",
+        "fullName": "Alfonse Elric",
+        "userName": "alfonse",
+        "password": "elric123"
+    },
+
+    {
+        "email": "roy.mustang@alura.com.br",
+        "fullName": "Roy Mustang",
+        "userName": "mustang",
+        "password": "mustang1"
+    }
+]
