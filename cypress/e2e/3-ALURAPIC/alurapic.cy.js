@@ -1,7 +1,7 @@
 describe('Login e registro de usuários no AluraPic', () => {
 
     beforeEach(() => {
-        cy.visit('https://alura-fotos.herokuapp.com')
+        cy.visit('https://alura-fotos.herokuapp.com');
     })
 
     it('verifica mensagens de validação', () => {
@@ -54,5 +54,11 @@ describe('Login e registro de usuários no AluraPic', () => {
         cy.get('input[formcontrolname="userName"]').type('LUCAS');
         cy.contains('button', 'Register').click();
         cy.contains('ap-vmessage','Must be lower case').should('be.visible');
+    })
+
+
+    it.only('login de usuário válido', () => {
+        cy.login('flavio', '123');
+        cy.contains('a', '(Logout)').should('be.visible');
     })
 })
